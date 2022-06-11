@@ -1,8 +1,9 @@
 import React from 'react';
+import Layout from '../components/layout';
 
 function View() {
   return (
-    <div> View </div>
+    <Layout> View </Layout>
   );
 }
 
