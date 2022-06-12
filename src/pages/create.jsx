@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout';
 import { useAppContext } from '../store/store';
 
@@ -11,6 +12,7 @@ function Create() {
   const [review, setReview] = useState('');
 
   const store = useAppContext();
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const name = e.target.name;
@@ -41,7 +43,6 @@ function Create() {
     var file = element.files[0];
     var reader = new FileReader();
     reader.onloadend = function () {
-      console.log("RESULT", reader.result);
       setCover(reader.result.toString());
     };
     reader.readAsDataURL(file);
@@ -58,8 +59,8 @@ function Create() {
       completed,
       review,
     };
-    //TODO: Register Book
     store.createItem(newBook);
+    navigate('/');
   }
 
   return (
