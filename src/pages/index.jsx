@@ -5,10 +5,17 @@ import Book from '../components/book';
 
 function Index() {
   const store = useAppContext();
+  const booksContainer = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '10px',
+  };
 
   return (
     <Layout>
-      { store.items.map((item) => (<Book key={ item.id } item={ item } /> )) }
+      <div style={ booksContainer }>
+        { store.items.map((item) => (<Book key={ item.id } item={ item } /> )) }
+      </div>
     </Layout>
   );
 }
